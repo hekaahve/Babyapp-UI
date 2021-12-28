@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FruitsService } from 'src/services/fruits.service';
 
 @Component({
   selector: 'app-info',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./info.component.css']
 })
 export class InfoComponent implements OnInit {
+  //fruit!: FruitsService;
+  fruits: any[] = [];
 
-  constructor() { }
-
+  constructor(public fruitService: FruitsService) { }
+  
+  getFruits(): void {
+    this.fruits = this.fruitService.getFruits();
+  }
+  //TODO add some functionality
   ngOnInit(): void {
+    this.getFruits();
   }
 
 }
