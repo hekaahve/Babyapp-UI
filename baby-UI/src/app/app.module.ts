@@ -15,10 +15,13 @@ import { MatListModule } from '@angular/material/list';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminRoutingModule } from './admin/admin-routing.module';
 import { InfoComponent } from './info/info.component';
-
+import { MapComponent } from './map/map.component';
+import {LeafletModule} from '@asymmetrik/ngx-leaflet';
+//is these routes unnecessarely?
 export const routes = [
   {path : 'navbar', component : NavbarComponent, label: 'Navbar'},
-  {path : 'info', component : InfoComponent, label: 'Info'}
+  {path : 'info', component : InfoComponent, label: 'Info'},
+  {path : 'map', component : MapComponent, label: 'Map'}
 ];
 
 @NgModule({
@@ -26,7 +29,8 @@ export const routes = [
     AppComponent,
     NavComponent,
     NavbarComponent,
-    InfoComponent
+    InfoComponent,
+    MapComponent
   ],
   imports: [
     RouterModule.forRoot([]),
@@ -39,7 +43,8 @@ export const routes = [
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    LeafletModule
   ],
   providers: [],
   bootstrap: [AppComponent]
