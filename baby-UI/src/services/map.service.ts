@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as L from 'leaflet';
+import 'leaflet-draw';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +22,14 @@ export class MapService {
     });
 
     tiles.addTo(this.map);
+    // FeatureGroup is to store editable layers
+    var drawnItems = new L.FeatureGroup();
+    this.map.addLayer(drawnItems);
+    var drawControl = new L.Control.Draw({
+        edit: {
+            featureGroup: drawnItems
+        }
+    });
+    this.map.addControl(drawControl);//TODO add icons to drawcontrol
   }
 }
