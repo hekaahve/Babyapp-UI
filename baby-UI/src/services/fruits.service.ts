@@ -4,11 +4,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FruitsService {
+ fruits: string[] = [];
  constructor(){}
 
  getFruits(){
-  let fruits:string[];
-  fruits = ['Apple', 'Orange', 'Banana'];
-  return fruits;
+  this.fruits = ['Apple', 'Orange', 'Banana'];
+  return this.fruits;
  }
 }
