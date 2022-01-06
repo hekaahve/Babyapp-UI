@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {latLng, MapOptions, tileLayer} from 'leaflet';
+import { MapService } from 'src/services/map.service';
 
 @Component({
   selector: 'app-map',
@@ -8,28 +8,10 @@ import {latLng, MapOptions, tileLayer} from 'leaflet';
 })
 export class MapComponent implements OnInit {
 
-  mapOptions!: MapOptions;
-
-  constructor() { }
+  constructor(public map: MapService) { }
 
   ngOnInit(): void {
-    this.initializeMapOptions();
+    this.map.initMap()
   }
-
-  private initializeMapOptions() {
-    this.mapOptions = {
-      center: latLng(51.505, 0),
-      zoom: 12,
-      layers: [
-        tileLayer(
-          'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-          {
-            maxZoom: 18,
-            attribution: 'Map data © OpenStreetMap contributors'
-          })
-      ],
-    };
-  }
-
 
 }
