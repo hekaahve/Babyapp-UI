@@ -17,6 +17,8 @@ import { AdminRoutingModule } from './admin/admin-routing.module';
 import { InfoComponent } from './info/info.component';
 import { MapComponent } from './map/map.component';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
+import * as echarts from 'echarts';
+import { NgxEchartsModule } from 'ngx-echarts';
 //is these routes unnecessarely?
 export const routes = [
   {path : 'navbar', component : NavbarComponent, label: 'Navbar'},
@@ -44,7 +46,10 @@ export const routes = [
     MatIconModule,
     MatListModule,
     AdminRoutingModule,
-    LeafletModule
+    LeafletModule,
+    NgxEchartsModule.forRoot({
+      echarts
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
