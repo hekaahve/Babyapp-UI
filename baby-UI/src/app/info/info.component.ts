@@ -17,19 +17,54 @@ export class InfoComponent implements OnInit {
     this.fruitService.getFruits();
   }
   chartOptions: EChartsOption = {
+    title: {
+      text: 'Age/weight'
+    },
     xAxis: {
       type: 'category',
-      boundaryGap: false,
-      data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      data: ['0', '0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7']
     },
     yAxis: {
       type: 'value'
     },
-    series: [{
-      data: [820, 932, 901, 934, 1290, 1430, 1550, 1200, 1650.1450, 1680.1890],
-      type: 'line',
-      areaStyle: {}
-    }]
+    series: [
+      {
+        name: '2SD',
+        type: 'line',    
+        data: [4.5, 5.7, 7, 8.8, 9.6, 10.1, 10.5],
+        smooth: true
+      },
+      {
+        name: '1SD',
+        type: 'line',
+        data: [4.5, 5.7, 7, 8.8, 9.6, 10.1, 10.5],
+        smooth: true
+      },
+      {
+        name: '0SD',
+        type: 'line',
+        data: [4.5, 5.7, 7, 8.8, 9.6, 10.1, 10.5],
+        smooth: true
+      },
+      {
+        name: '-1SD',
+        type: 'line',
+        data: [4.5, 5.7, 7, 8.8, 9.6, 10.1, 10.5],
+        smooth: true
+      },
+      {
+        name: '-2SD',
+        type: 'line',
+        data: [4.5, 5.7, 7, 8.8, 9.6, 10.1, 10.5],
+        smooth: true
+      },
+      {
+        name: 'Ninni',
+        type: 'line',
+        data: [3.78, 3.526, 3.950, 4.51, 4.76, 5.285],
+        smooth: true
+      }
+    ]
   }
 
 }
