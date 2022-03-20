@@ -2,12 +2,12 @@
       <div class="container">
             <div class="info">
             <h3>Ninni the Baby</h3>
-            <img src="/assets/images/babyicongirl.png" width="200" height="200" alt="image"/>
+            <img src="/assets/images/babyicongirl.png" width="300" height="300" alt="image"/>
             </div>
             <div echarts [options]="chartOptions" class="demo-chart"></div>
       </div>
-      <div>
-            <form class="example-form">
+      <div class="input-container">
+            <form class="info-form">
                   <table class="example-full-width" cellspacing="0"><tr>
                         <td><mat-form-field class="example-full-width" appearance="fill">
                          <mat-label>Age</mat-label>
@@ -20,10 +20,10 @@
                         </mat-form-field></td>
 
                         <td><mat-form-field class="example-full-width" appearance="fill">
-                              <mat-label>Name</mat-label>
-                              <input matInput placeholder="Name" name="name" [(ngModel)]="name">
-                             </mat-form-field>
-                             <button mat-button color="primary" (click)="clickme()">Clickme</button></td>
+                         <mat-label>Name</mat-label>
+                         <input matInput placeholder="Name" name="name" [(ngModel)]="name">
+                         </mat-form-field>
+                         <button mat-button color="primary" (click)="clickme()">Save</button></td>
                         </tr></table>
             </form>
             

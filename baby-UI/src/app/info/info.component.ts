@@ -17,12 +17,11 @@ export class InfoComponent implements OnInit {
 
   constructor(public weightService: WeightsService) { }
   
-  //TODO add some functionality
   ngOnInit(): void {
   }
 
   clickme() {
-    //TODO: saves input-values from Age, weight and name
+    //TODO: saves input-values from Age, weight and name to DB
     console.log('it does nothing',this.age, this.weight, this.name);
   }
 

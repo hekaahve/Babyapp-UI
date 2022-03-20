@@ -10,3 +10,12 @@
     width: 400px;
     flex: 2;
   }
+  
+  td {
+    padding-right: 3px;
+  }
+  .input-container{
+    margin: 20px;
+    display: flex;
+  }
+  
