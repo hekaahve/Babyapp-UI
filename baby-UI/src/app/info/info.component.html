@@ -6,6 +6,27 @@
             </div>
             <div echarts [options]="chartOptions" class="demo-chart"></div>
       </div>
-</div>
+      <div>
+            <form class="example-form">
+                  <table class="example-full-width" cellspacing="0"><tr>
+                        <td><mat-form-field class="example-full-width" appearance="fill">
+                         <mat-label>Age</mat-label>
+                         <input matInput placeholder="Age" name="age" [(ngModel)]="age">
+                        </mat-form-field></td>
 
+                        <td><mat-form-field class="example-full-width" appearance="fill">
+                         <mat-label>Weight</mat-label>
+                         <input matInput placeholder="Weight" name="weight" [(ngModel)]="weight">
+                        </mat-form-field></td>
+
+                        <td><mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label>Name</mat-label>
+                              <input matInput placeholder="Name" name="name" [(ngModel)]="name">
+                             </mat-form-field>
+                             <button mat-button color="primary" (click)="clickme()">Clickme</button></td>
+                        </tr></table>
+            </form>
+            
+      </div>
+</div>
 

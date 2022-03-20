@@ -19,6 +19,9 @@ import { MapComponent } from './map/map.component';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import * as echarts from 'echarts';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
 //is these routes unnecessarely?
 export const routes = [
   {path : 'navbar', component : NavbarComponent, label: 'Navbar'},
@@ -45,8 +48,11 @@ export const routes = [
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
     AdminRoutingModule,
     LeafletModule,
+    FormsModule,
     NgxEchartsModule.forRoot({
       echarts
     }),

@@ -9,12 +9,23 @@ import { EChartsOption } from 'echarts';
 })
 export class InfoComponent implements OnInit {
   ChartOptions: any;
+  age!: any;
+  weight!: any;
+  name!: any;
+  
+
 
   constructor(public weightService: WeightsService) { }
   
   //TODO add some functionality
   ngOnInit(): void {
   }
+
+  clickme() {
+    //TODO: saves input-values from Age, weight and name
+    console.log('it does nothing',this.age, this.weight, this.name);
+  }
+
   chartOptions: EChartsOption = {
     title: {
       text: 'Age/weight'
