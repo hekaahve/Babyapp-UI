@@ -12,17 +12,21 @@ export class InfoComponent implements OnInit {
   age!: any;
   weight!: any;
   name!: any;
-  
-
+  Ninni: any[] = [{id: 1,"age":"0","weight":2.5, "name":"ninni"}];
 
   constructor(public weightService: WeightsService) { }
   
-  ngOnInit(): void {
+  ngOnInit() {
+    //gets info to chart, but chart loads first. FIX
+    this.weightService.getValue().subscribe(data => {
+      console.log(data)
+      this.Ninni = data;
+    })
   }
-
   clickme() {
     //TODO: saves input-values from Age, weight and name to DB
     console.log('it does nothing',this.age, this.weight, this.name);
+    console.log(this.Ninni)
   }
 
   chartOptions: EChartsOption = {
@@ -34,20 +38,20 @@ export class InfoComponent implements OnInit {
   dataset: [
     {
       dimensions: [
-        'Age',
-        'Weight',
-        'Name',
-        { name: 'Name', type: 'ordinal' }// TODO: type to date 
+        'age',
+        'weight',
+        'name',
+        { name: 'name', type: 'ordinal' }// TODO: type to date 
       ],
-      // Provide a set of data.
-      source: this.weightService.getNinni()
+      //lataa tämän ensin ennenkuin menee ngInitiin?
+      source: this.Ninni
     },
     {
       dimensions: [
-        'Age',
-        'Weight',
-        'Name',
-        { name: 'Name', type: 'ordinal' }// TODO: type to date 
+        'age',
+        'weight',
+        'name',
+        { name: 'name', type: 'ordinal' }// TODO: type to date 
       ],
       // Provide a set of data.
       source: this.weightService.getPos2SD()
@@ -60,15 +64,15 @@ export class InfoComponent implements OnInit {
       { type: 'line',
       datasetIndex:0,
       encode:{
-        x:'Age',
-        y:'Weight'
+        x:'age',
+        y:'weight'
       }
     },
     { type: 'line',
     datasetIndex:1,
     encode:{
-      x:'Age',
-      y:'Weight'
+      x:'age',
+      y:'weight'
     }
   },
     ]

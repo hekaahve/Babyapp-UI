@@ -22,6 +22,7 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 //is these routes unnecessarely?
 export const routes = [
   {path : 'navbar', component : NavbarComponent, label: 'Navbar'},
@@ -52,6 +53,7 @@ export const routes = [
     MatInputModule,
     AdminRoutingModule,
     LeafletModule,
+    HttpClientModule,
     FormsModule,
     NgxEchartsModule.forRoot({
       echarts
