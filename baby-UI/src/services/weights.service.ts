@@ -33,7 +33,7 @@ export class WeightsService {
   }
 
 getValue(): Observable<Chart[]> {
-  return this.http.get<Chart[]>('http://localhost:3001/api/charts/ninni', {observe: 'body', responseType: 'json'})
+  return this.http.get<Chart[]>('https://blooming-castle-98347.herokuapp.com/api/charts/ninni', {observe: 'body', responseType: 'json'})
 }
 
   //Returns weightinfo of Ninni. TODO: Connect to backend, fix response
