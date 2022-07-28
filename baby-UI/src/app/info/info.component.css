@@ -10,7 +10,6 @@
     width: 400px;
     flex: 2;
   }
-  
   td {
     padding-right: 3px;
   }
@@ -18,4 +17,11 @@
     margin: 20px;
     display: flex;
   }
-  
+
+  .info-card {
+    max-width: 300px;
+  }
+  .example-header-image {
+    background-image: url('/assets/images/girlHead.PNG');
+    background-size: cover;
+  }

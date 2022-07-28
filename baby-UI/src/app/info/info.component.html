@@ -1,32 +1,52 @@
 <div>
       <div class="container">
             <div class="info">
-            <h3>Ninni the Baby</h3>
-            <img src="/assets/images/babyicongirl.png" width="300" height="300" alt="image"/>
+            <mat-card class="info-card">
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>Ninni</mat-card-title>
+                    <mat-card-subtitle>Baby</mat-card-subtitle>
+                  </mat-card-header>
+                  <img mat-card-image src="/assets/images/babyicongirl.png" alt="Photo of a Shiba Inu">
+                  <mat-card-content>
+                    <p>
+                      This is a website for Ninni and her friends.
+                    </p>
+                  </mat-card-content>
+                  <mat-card-actions>
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+                  </mat-card-actions>
+                </mat-card>
             </div>
             <div echarts [options]="chartOptions" class="demo-chart"></div>
+              
       </div>
       <div class="input-container">
             <form class="info-form">
                   <table class="example-full-width" cellspacing="0"><tr>
-                        <td><mat-form-field class="example-full-width" appearance="fill">
-                         <mat-label>Age</mat-label>
-                         <input matInput placeholder="Age" name="age" [(ngModel)]="age">
-                        </mat-form-field></td>
+                        <td>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Age</mat-label>
+                        <input matInput placeholder="Age" name="age" [(ngModel)]="age">
+                        </mat-form-field>
+                        </td>
+
+                        <td>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Weight</mat-label>
+                        <input matInput placeholder="Weight" name="weight" [(ngModel)]="weight">
+                        </mat-form-field>
+                        </td>
 
                         <td><mat-form-field class="example-full-width" appearance="fill">
-                         <mat-label>Weight</mat-label>
-                         <input matInput placeholder="Weight" name="weight" [(ngModel)]="weight">
-                        </mat-form-field></td>
-
-                        <td><mat-form-field class="example-full-width" appearance="fill">
-                         <mat-label>Name</mat-label>
-                         <input matInput placeholder="Name" name="name" [(ngModel)]="name">
-                         </mat-form-field>
-                         <button mat-button color="primary" (click)="clickme()">Save</button></td>
-                        </tr></table>
+                        <mat-label>Name</mat-label>
+                        <input matInput placeholder="Name" name="name" [(ngModel)]="name">
+                        </mat-form-field>
+                        <button mat-button color="primary" (click)="clickme()">Save</button></td>
+                        </tr>
+                  </table>
             </form>
-            
       </div>
 </div>
 
