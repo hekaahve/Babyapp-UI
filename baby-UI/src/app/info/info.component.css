@@ -4,10 +4,12 @@
 }
 .info{
     flex: 1;
+    margin: auto;
 }
 .demo-chart {
-    height: 400px;
+    height: 500px;
     width: 400px;
+    margin: 0px;
     flex: 2;
   }
   td {

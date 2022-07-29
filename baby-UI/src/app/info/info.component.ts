@@ -9,10 +9,11 @@ import { EChartsOption } from 'echarts';
 })
 export class InfoComponent implements OnInit {
   ChartOptions: any;
+  countryCasesChartOptions: any;
   age!: any;
   weight!: any;
   name!: any;
-  Ninni: any[] = [{id: 1,"age":"0","weight":2.5, "name":"ninni"}];
+  Ninni: any;
 
   constructor(public weightService: WeightsService) { }
   
@@ -21,6 +22,7 @@ export class InfoComponent implements OnInit {
     this.weightService.getValue().subscribe(data => {
       console.log(data)
       this.Ninni = data;
+      this.setOptions();
     })
   }
   clickme() {
@@ -29,53 +31,60 @@ export class InfoComponent implements OnInit {
     console.log(this.Ninni)
   }
 
-  chartOptions: EChartsOption = {
-    title: {
-      text: 'Age/weight'
-    },
-    legend: {},
-  tooltip: {},
-  dataset: [
-    {
-      dimensions: [
-        'age',
-        'weight',
-        'name',
-        { name: 'name', type: 'ordinal' }// TODO: type to date 
-      ],
-      //lataa tämän ensin ennenkuin menee ngInitiin?
-      source: this.Ninni
-    },
-    {
-      dimensions: [
-        'age',
-        'weight',
-        'name',
-        { name: 'name', type: 'ordinal' }// TODO: type to date 
-      ],
-      // Provide a set of data.
-      source: this.weightService.getPos2SD()
-    }
-  ],
-  // The category map the first row in the dataset by default.
-  xAxis: { type: 'category', name: "Age (months)" },
-  yAxis: {name: "Weight (kg)"},
-  series: [
+  setOptions(){
+    this.ChartOptions = {
+      title: {
+        text: 'Age/weight'
+      },
+      legend: {},
+    tooltip: {},
+    dataset: [
+      {
+        dimensions: [
+          'age',
+          'weight',
+          'name',
+          { name: 'name', type: 'ordinal' }// TODO: type to date 
+        ],
+        //lataa tämän ensin ennenkuin menee ngInitiin?
+        source: this.Ninni
+      },
+      {
+        dimensions: [
+          'age',
+          'weight',
+          'name',
+          { name: 'name', type: 'ordinal' }// TODO: type to date 
+        ],
+        // Provide a set of data.
+        source: this.weightService.getPos2SD()
+      }
+    ],
+    // The category map the first row in the dataset by default.
+    xAxis: { type: 'category', name: "Age (months)" },
+    yAxis: {name: "Weight (kg)"},
+    series: [
+        { type: 'line',
+        datasetIndex:0,
+        encode:{
+          x:'age',
+          y:'weight'
+        }
+      },
       { type: 'line',
-      datasetIndex:0,
+      datasetIndex:1,
       encode:{
         x:'age',
         y:'weight'
       }
     },
-    { type: 'line',
-    datasetIndex:1,
-    encode:{
-      x:'age',
-      y:'weight'
+      ]
+      
     }
-  },
-    ]
+  }
+  /*
+  chartOptions: EChartsOption = {
+   
   };
-
+*/
 }
