@@ -18,8 +18,8 @@ export class InfoComponent implements OnInit {
   constructor(public weightService: WeightsService) { }
   
   ngOnInit() {
-    //gets info to chart, but chart loads first. FIX
-    this.weightService.getValue().subscribe(data => {
+    //TODO: fetch all, then filter in datasource-sections
+    this.weightService.getNinni().subscribe(data => {
       console.log(data)
       this.Ninni = data;
       this.setOptions();
@@ -28,7 +28,6 @@ export class InfoComponent implements OnInit {
   clickme() {
     //TODO: saves input-values from Age, weight and name to DB
     console.log('it does nothing',this.age, this.weight, this.name);
-    console.log(this.Ninni)
   }
 
   setOptions(){
@@ -46,7 +45,6 @@ export class InfoComponent implements OnInit {
           'name',
           { name: 'name', type: 'ordinal' }// TODO: type to date 
         ],
-        //lataa tämän ensin ennenkuin menee ngInitiin?
         source: this.Ninni
       },
       {
@@ -56,7 +54,6 @@ export class InfoComponent implements OnInit {
           'name',
           { name: 'name', type: 'ordinal' }// TODO: type to date 
         ],
-        // Provide a set of data.
         source: this.weightService.getPos2SD()
       }
     ],
@@ -82,9 +79,4 @@ export class InfoComponent implements OnInit {
       
     }
   }
-  /*
-  chartOptions: EChartsOption = {
-   
-  };
-*/
 }

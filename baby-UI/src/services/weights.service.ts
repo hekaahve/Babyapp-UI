@@ -15,37 +15,13 @@ export interface Chart {
 export class WeightsService {
   public Ninni: any;
   public Pos2SD: any[] = [];
-  public asyncResult: any;
 
   constructor(public http: HttpClient) { }
 
-  private async request(method: string, url: string, data?: any, responseType?: any) {
-
-    console.log('request ' + JSON.stringify(data));
-    const result = this.http.request(method, url, {
-      body: data,
-      responseType: responseType || 'json',
-      observe: 'body',
-    });    
-    return new Promise<any>((resolve, reject) => {
-      result.subscribe(resolve as any, reject as any);
-    });
-  }
-
-getValue(): Observable<Chart[]> {
+  //TODO getAll, then infocomponent filters by name
+getNinni(): Observable<Chart[]> {
   return this.http.get<Chart[]>('https://blooming-castle-98347.herokuapp.com/api/charts/ninni', {observe: 'body', responseType: 'json'})
 }
-
-  //Returns weightinfo of Ninni. TODO: Connect to backend, fix response
- getNinni(){
-  let value;
-  //console.log(this.getValue())
-  this.Ninni = [{id: 1,"age":"0","weight":2.5, "name":"ninni"},
-  {id: 2,"age":"1", "weight":8.6, "name":"ninni"}]
-  console.log("toinen ", this.Ninni[1])
-  //return this.http.get('http://localhost:3001/api/charts/ninni')
-  return this.Ninni
-  }
 
   getPos2SD(){
     return this.Pos2SD=[
