@@ -19,9 +19,15 @@ export class WeightsService {
   constructor(public http: HttpClient) { }
 
   //TODO getAll, then infocomponent filters by name
-getNinni(): Observable<Chart[]> {
-  return this.http.get<Chart[]>('https://blooming-castle-98347.herokuapp.com/api/charts/ninni', {observe: 'body', responseType: 'json'})
-}
+  getAll(): Observable<Chart[]> {
+  //https://blooming-castle-98347.herokuapp.com/api/charts/ninni
+  return this.http.get<Chart[]>('http://localhost:3001/api/charts', {observe: 'body', responseType: 'json'})
+  }
+
+  //Adds value into chart
+  addValue(){
+
+  }
 
   getPos2SD(){
     return this.Pos2SD=[

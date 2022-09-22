@@ -13,15 +13,18 @@ export class InfoComponent implements OnInit {
   age!: any;
   weight!: any;
   name!: any;
+  chartValues: any;
   Ninni: any;
+  SD2: any;
 
   constructor(public weightService: WeightsService) { }
   
   ngOnInit() {
-    //TODO: fetch all, then filter in datasource-sections
-    this.weightService.getNinni().subscribe(data => {
+    this.weightService.getAll().subscribe(data => {
       console.log(data)
-      this.Ninni = data;
+      this.chartValues = data;
+      this.Ninni = this.chartValues.filter((n: { name: string; }) => n.name == 'ninni')
+      this.SD2 = this.chartValues.filter((n: { name: string; }) => n.name == '2SD')
       this.setOptions();
     })
   }
@@ -54,7 +57,7 @@ export class InfoComponent implements OnInit {
           'name',
           { name: 'name', type: 'ordinal' }// TODO: type to date 
         ],
-        source: this.weightService.getPos2SD()
+        source: this.SD2
       }
     ],
     // The category map the first row in the dataset by default.
@@ -63,6 +66,9 @@ export class InfoComponent implements OnInit {
     series: [
         { type: 'line',
         datasetIndex:0,
+        label:{
+           show: true, 
+        },
         encode:{
           x:'age',
           y:'weight'
@@ -70,6 +76,9 @@ export class InfoComponent implements OnInit {
       },
       { type: 'line',
       datasetIndex:1,
+      label:{
+        show: true 
+     },
       encode:{
         x:'age',
         y:'weight'
