@@ -24,19 +24,8 @@ export class WeightsService {
   return this.http.get<Chart[]>('http://localhost:3001/api/charts', {observe: 'body', responseType: 'json'})
   }
 
-  //Adds value into chart
-  addValue(){
-
-  }
-
-  getPos2SD(){
-    return this.Pos2SD=[
-      {"age":"0","weight":4.5, "name":"2SD"},
-      {"age":"1", "weight":5.6, "name":"2SD"},
-      {"age":"2", "weight":7, "name":"2SD"},
-      {"age":"3", "weight":8, "name":"2SD"},
-      {"age":"4", "weight":8.9, "name":"2SD"},
-      {"age":"5", "weight":9.5, "name":"2SD"}
-    ]
+  //TODO: Finish, check if works
+  addValue(age: any, weight: any, name: any): Observable<any>{
+    return this.http.post('http://localhost:3001/api/charts', {age: age, weight: weight, name: name})
   }
 }

@@ -30,6 +30,7 @@ export class InfoComponent implements OnInit {
   }
   clickme() {
     //TODO: saves input-values from Age, weight and name to DB
+    this.weightService.addValue(this.age, this.weight, this.name);
     console.log('it does nothing',this.age, this.weight, this.name);
   }
 
