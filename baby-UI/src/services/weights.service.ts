@@ -18,14 +18,15 @@ export class WeightsService {
 
   constructor(public http: HttpClient) { }
 
-  //TODO getAll, then infocomponent filters by name
   getAll(): Observable<Chart[]> {
   //https://blooming-castle-98347.herokuapp.com/api/charts/ninni
   return this.http.get<Chart[]>('http://localhost:3001/api/charts', {observe: 'body', responseType: 'json'})
   }
 
-  //TODO: Finish, check if works
+  //TODO: Fix error from backend Cannot set headers after they are sent to the client
   addValue(age: any, weight: any, name: any): Observable<any>{
-    return this.http.post('http://localhost:3001/api/charts', {age: age, weight: weight, name: name})
+    var newChart = JSON.stringify({age: age, weight: weight, name: name})
+    const headers = { 'content-type': 'application/json'}
+    return this.http.post('http://localhost:3001/api/charts', newChart, {'headers':headers})
   }
 }
