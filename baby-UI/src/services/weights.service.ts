@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 export interface Chart {
-  age: string; //change to number
+  age: Number;
   weight: Number;
   name: string;
 }

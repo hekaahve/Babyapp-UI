@@ -16,20 +16,21 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AdminRoutingModule } from './admin/admin-routing.module';
 import { InfoComponent } from './info/info.component';
 import { MapComponent } from './map/map.component';
-import {LeafletModule} from '@asymmetrik/ngx-leaflet';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import * as echarts from 'echarts';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import {MatCardModule} from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatTableModule } from '@angular/material/table';
 //is these routes unnecessarely?
 export const routes = [
-  {path : 'navbar', component : NavbarComponent, label: 'Navbar'},
-  {path : 'info', component : InfoComponent, label: 'Info'},
-  {path : 'map', component : MapComponent, label: 'Map'}
+  { path: 'navbar', component: NavbarComponent, label: 'Navbar' },
+  { path: 'info', component: InfoComponent, label: 'Info' },
+  { path: 'map', component: MapComponent, label: 'Map' },
 ];
 
 @NgModule({
@@ -38,7 +39,7 @@ export const routes = [
     NavComponent,
     NavbarComponent,
     InfoComponent,
-    MapComponent
+    MapComponent,
   ],
   imports: [
     RouterModule.forRoot([]),
@@ -47,6 +48,7 @@ export const routes = [
     MatSliderModule,
     LayoutModule,
     MatToolbarModule,
+    MatTableModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
@@ -60,10 +62,10 @@ export const routes = [
     MatCardModule,
     MatGridListModule,
     NgxEchartsModule.forRoot({
-      echarts
+      echarts,
     }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

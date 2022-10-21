@@ -34,6 +34,7 @@ export class NavbarComponent implements OnInit {
             { age: 2, weight: 6, name: 'ninni' },
             { age: 3, weight: 6.6, name: 'ninni' },
             { age: 3.4, weight: 5.5, name: 'ninni' },
+            { age: 4, weight: 7, name: 'ninni' },
           ],
         },
         {

@@ -1,29 +1,46 @@
 .container {
-    margin: 20px;
-    display: flex;
+  margin: 20px;
+  display: flex;
 }
-.info{
-    flex: 1;
-    margin: auto;
+.container2 {
+  display: flex;
+}
+.info {
+  flex: 1;
+  margin: auto;
+}
+.demo-button-container {
+  flex: 1;
 }
 .demo-chart {
-    height: 500px;
-    width: 400px;
-    margin: 0px;
-    flex: 2;
-  }
-  td {
-    padding-right: 3px;
-  }
-  .input-container{
-    margin: 20px;
-    display: flex;
-  }
+  height: 500px;
+  width: 400px;
+  margin: 0px;
+  flex: 2;
+}
+.input-container {
+  margin-left: 20px;
+}
 
-  .info-card {
-    max-width: 300px;
-  }
-  .example-header-image {
-    background-image: url('/assets/images/girlHead.PNG');
-    background-size: cover;
-  }
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.info-card {
+  max-width: 300px;
+}
+.example-header-image {
+  background-image: url("/assets/images/girlHead.PNG");
+  background-size: cover;
+}
+.demo-table {
+  width: 100%;
+}
+
+.friendsTable {
+  padding-bottom: 16px;
+}
+
+.demo-button + .demo-button {
+  margin-left: 8px;
+}
